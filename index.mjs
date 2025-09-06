@@ -1,10 +1,12 @@
 import dotenv from "dotenv";
-dotenv.config({ path: "./example.env" });
+dotenv.config({ path: ".env" });
 
 import express from "express";
 import { errorHandler } from "./error.mjs";
 import userRouter from "./users/router.mjs";
 const app = express();
+
+app.use(express.json());
 
 app.use("/users", userRouter);
 
